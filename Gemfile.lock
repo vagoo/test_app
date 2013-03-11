@@ -139,7 +139,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  capybara (= 2.0.2)
+  capybara
   coffee-rails (= 3.2.2)
   jquery-rails (= 2.0.2)
   pg (= 0.12.2)
