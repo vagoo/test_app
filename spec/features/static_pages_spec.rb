@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "Static Pages" do
 include Capybara::DSL
+let(:base_title) { "Ruby on Rails Sample App" }
   describe "Home page" do
 
     it "should have the content 'Sample App'" do
@@ -11,7 +12,7 @@ include Capybara::DSL
 	
 	it "should have the title 'home'" do
 	  visit '/static_pages/home'
-	  page.should have_selector("title:contains('Ruby on Rails Sample App - Home')")
+	  page.should have_selector("title:contains('#{base_title} - Home')")
 	end
   end
 
@@ -24,7 +25,7 @@ include Capybara::DSL
 	
 	it "should have the title 'help'" do
 	  visit '/static_pages/help'
-	  page.should have_selector("title:contains('Ruby on Rails Sample App - Help')")
+	  page.should have_selector("title:contains('#{base_title} - Help')")
 	end
   end
 
@@ -37,8 +38,21 @@ include Capybara::DSL
 	
 	it "should have the title 'about'" do
 	  visit '/static_pages/about'
-	  page.should have_selector("title:contains('Ruby on Rails Sample App - About Us')")
+	  page.should have_selector("title:contains('#{base_title} - About Us')")
 	end
+  end
+  
+  describe "Contact page" do
+    
+	it "should have content 'Contact'" do
+	  visit '/static_pages/contact'
+	  page.should have_selector("h1:contains('Contact')")
+	end
+	
+	it "should have the content 'Contact'" do
+      visit '/static_pages/contact'
+      page.should have_selector("title:contains('#{base_title} - Contact')")
+    end
   end
   
 end
